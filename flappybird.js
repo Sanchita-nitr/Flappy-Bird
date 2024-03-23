@@ -1,7 +1,7 @@
 //board
 let board;
 let boardWidth = 1490;
-let boardHeight = 800;
+let boardHeight = window.screen.height;
 let context;
 
 //bird
