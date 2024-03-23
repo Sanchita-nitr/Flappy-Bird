@@ -6,18 +6,10 @@ body {
 
 #board {
     background-image: url("./Gamebg.jpg");
+    position:fixed;
     background-size: 100% 100%;
 }
 
-@media screen and (max-width:700px){
-    
-#board {
-    background-image: url("./Gamebg.jpg");
-    background-size: 100% 100%;
-}
-
-    
-}
 
 
 
