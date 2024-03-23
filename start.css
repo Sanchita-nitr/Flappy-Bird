@@ -4,19 +4,6 @@ body, html {
     height: 100%;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background-image: url('startflappy-bg.jpg.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .start-image {
     display: block;
     width: 100vw;
