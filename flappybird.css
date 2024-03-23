@@ -6,6 +6,7 @@ body {
 
 #board {
     background-image: url("./Gamebg.jpg");
+    background-size: 100% 100%;
 }
 
 
