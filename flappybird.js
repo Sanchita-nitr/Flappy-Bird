@@ -1,14 +1,14 @@
 //board
 let board;
-let boardWidth = 1450;
-let boardHeight = 800;
+let boardWidth = window.screen.width;
+let boardHeight = window.screen.height;
 let context;
 
 //bird
-let birdWidth = 60;
+let birdWidth = 80;
 let birdHeight = 50;
-let birdX = boardWidth / 8;
-let birdY = boardHeight / 2;
+let birdX = boardWidth / 3 ;
+let birdY = boardHeight / 3 ;
 let birdImg;
 let birdImgDie;
 
@@ -59,8 +59,10 @@ window.onload = function () {
     bottomPipeImg.src = "./bottompipe.png";
 
     requestAnimationFrame(update);
-    setInterval(placePipes, 2000);
+    setInterval(placePipes, 2024 );
     document.addEventListener("keydown", moveBird);
+    document.addEventListener("touchstart", movebirdbytouchstart);
+    
 }
 
 function showHighScorePage() {
@@ -70,7 +72,7 @@ function showHighScorePage() {
 function update() {
     requestAnimationFrame(update);
     if (gameOver) {
-        board.style.opacity = 0;
+        board.style.opacity = 1;
 
         if (score > localStorage.getItem('highScore')) {
             localStorage.setItem('highScore', score);
@@ -78,9 +80,8 @@ function update() {
 
         setTimeout(function () {
             window.location.href = "Highscore.html";
-        }, 5000);
-
-        showHighScorePage();
+            showHighScorePage();
+        }, 1000);
 
         return;
     }
@@ -119,11 +120,14 @@ function update() {
     }
 
     //score
+
     context.fillStyle = "white";
     context.font = "45px sans-serif";
-    context.fillText(score, 5, 45);
+    context.fillText(score, 30,  60);
 
     if (gameOver) {
+        
+        context.fillText("GAME OVER", 30, 250);
         context.drawImage(birdImgDie, bird.x, bird.y, bird.width, bird.height);
     }
 }
@@ -160,7 +164,7 @@ function placePipes() {
 function moveBird(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
-        velocityY = -7;
+        velocityY = -8.2;
 
         //reset game
         if (gameOver) {
@@ -177,4 +181,16 @@ function detectCollision(a, b) {
         a.x + a.width > b.x &&
         a.y < b.y + b.height &&
         a.y + a.height > b.y;
+}
+function movebirdbytouchstart(e){
+    e.preventDefault();
+    velocityY = -8.3;
+
+    //reset game
+    if (gameOver) {
+        bird.y = birdY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
+    }
 }
