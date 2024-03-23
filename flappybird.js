@@ -81,7 +81,7 @@ function update() {
         setTimeout(function () {
             window.location.href = "Highscore.html";
             showHighScorePage();
-        }, 1000);
+        }, 500);
 
         return;
     }
