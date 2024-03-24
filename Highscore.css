@@ -1,5 +1,5 @@
 body{
-    background-image: image-set("Gamebg.jpg");
+    background-image: image-set("./images/Gamebg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 
