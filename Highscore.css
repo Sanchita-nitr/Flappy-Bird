@@ -1,8 +1,8 @@
 body{
-    background-image: image-set("./images/Gamebg.jpg");
+    background-image: image-set("Gamebg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-size : 100% 100%;
+
     
 }
 .HighScore{
